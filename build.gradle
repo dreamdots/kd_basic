@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.github.atsushi-ageet:gradle-git-repo-plugin:2.0.4'
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.5.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'git-repo'
+
+group = 'com.dots'
+version = '0.0.1'
+
+repositories {
+    git("https://github.com/dreamdots/kd_model.git", "kd_model", "master")
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.dots:kd_model:v1.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}

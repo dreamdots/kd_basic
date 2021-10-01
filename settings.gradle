@@ -1,0 +1,6 @@
+rootProject.name = 'kd_basic'
+sourceControl {
+    gitRepository(new URI("https://github.com/dreamdots/kd_model.git")) {
+        producesModule("com.dots:kd_model")
+    }
+}
